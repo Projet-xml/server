@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @XmlRootElement(name = "item")
 @XmlAccessorType(XmlAccessType.NONE)
+@Table(name = "items")
 public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
