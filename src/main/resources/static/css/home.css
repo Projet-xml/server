@@ -1,0 +1,48 @@
+header {
+
+    margin: 0%;
+
+}
+h1{
+    color: brown;
+}
+
+table {
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    left:auto;
+}
+div#dihia{
+    float: left;
+    width: auto;
+    left: 10%;
+}
+div#lydia{
+    float: right;
+    width: auto;
+}
+main{
+    max-width:100%;
+    min-height:100%;
+    margin:10% auto;
+    position:relative;
+
+}
+footer {
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+}
+div#anneescolaire{
+    float : right;
+    width: auto;
+}
+div#niveauscolaire{
+    float: left;
+    width: auto;
+}

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @XmlRootElement(name = "item")
 @XmlAccessorType(XmlAccessType.NONE)
-@Table(name = "items")
+@Table(name = "item")
 public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,7 +46,7 @@ public class Item implements Serializable {
 
 
     public Item(String guid, String title, String published,String updated, String content,
-                String author, String contributor, int id) {
+                String author, String contributor) {
         super();
         this.guid = guid;
         this.title = title;
