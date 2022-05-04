@@ -7,19 +7,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 
-@XmlRootElement(name = "feed")
+@XmlRootElement(name = "feed", namespace ="http://univrouen.fr/rss22")
 @XmlAccessorType(XmlAccessType.NONE)
-public class feed {
+public class Feed {
 
 
     @XmlElement
     private List<Item> items;
 
-    public feed(List<Item> items) {
+    public Feed(List<Item> items) {
         this.items = items;
     }
 
-    public feed() {}
+    public Feed() {}
+
+    public Item getItem(int index) {
+        return items.get(index);
+    }
 
 
 }

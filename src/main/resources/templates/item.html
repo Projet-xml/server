@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Item</title>
+</head>
+<body>
+<h1 th:text=" 'L\'item numéro : ' + ${id} " >  </h1>
+<h2 th:text="${title}">  </h2>
+<p>
+    <strong > Guid : </strong>
+    <span th:text="'(' + ${guid} + ')' " > </span>
+</p>
+
+<p>
+    <strong > Publié : </strong>
+    <span th:text="'(' + ${published} + ')' " > </span>
+</p>
+
+<p>
+    <strong > Mis à jour  : </strong>
+    <span th:text="'(' + ${updated} + ')' " > </span>
+
+</p>
+
+<p>
+    <strong > Écrit par  : </strong>
+    <span th:text="'(' + ${author.getName()} + ')' " > </span>
+</p>
+
+<p>
+    <strong > Contenu  : </strong>
+    <span th:text=" ${content} " > </span>
+</p>
+
+
+
+</body>
+</html>

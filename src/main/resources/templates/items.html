@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Liste des items de la base de données</title>
+    <link href="css/items.css" rel="stylesheet" th:href="@{css/items.css}">
+
+</head>
+
+<body>
+<table class="table">
+    <thead class = "thead-light">
+    <tr>
+        <th class="text-left">Title</th>
+        <th class="text-left">Guid</th>
+        <th class="text-left">Published</th>
+        <th class="text-left">Updated</th>
+        <th class="text-left">Content </th>
+        <th class="text-left">Author </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="watchlistItem : ${watchlistItems}">
+        <td th:text="${watchlistItem.getTitle()}"></td>
+        <td th:text="${watchlistItem.getGuid()}"></td>
+        <td th:text="${watchlistItem.getPublished()}"></td>
+        <td th:text="${watchlistItem.getUpdated()}"></td>
+        <td th:text="${watchlistItem.getContent()}"></td>
+        <td th:text="${watchlistItem.getAuthor().getName()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

@@ -22,7 +22,6 @@ public class FileLoader {
     }
 
     public static String asString(Resource resource) throws IOException  {
-
         try (Reader reader = new InputStreamReader(resource.getInputStream()))
         {
             return FileCopyUtils.copyToString(reader);

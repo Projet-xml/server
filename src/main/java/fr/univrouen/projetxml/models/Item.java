@@ -1,6 +1,11 @@
 package fr.univrouen.projetxml.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import org.hibernate.annotations.Cascade;
+
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -11,61 +16,59 @@ import javax.persistence.*;
 
 
 @Entity
-@XmlRootElement(name = "item")
+@XmlRootElement(name = "item", namespace ="http://univrouen.fr/rss22")
 @XmlAccessorType(XmlAccessType.NONE)
 @Table(name = "item")
+
 public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, name ="item_id")
     private int id;
 
     @XmlAttribute
     private String guid;
 
     @XmlElement
+    @Column(unique = true)
     private String title;
 
     @XmlElement
-    private String published;
+    private Date published;
 
     @XmlElement
-    private String updated;
+    private Date updated;
 
     @XmlElement
     private String content;
+
     @XmlElement
-    private String author;
-    @XmlElement
-    private String contributor;
+    @JoinColumn(name = "author_id")
+    @JsonIgnore
+    @JacksonXmlProperty(localName = "author")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Author author;
 
 
 
 
-    public Item(String guid, String title, String published,String updated, String content,
-                String author, String contributor) {
+    public Item(String guid, String title, Date published,Date updated, String content,
+                Author author) {
         super();
         this.guid = guid;
         this.title = title;
         this.published = published;
         this.author = author;
         this.content = content;
-        this.contributor = contributor;
         this.updated = updated;
     }
 
     public Item() {
     }
 
-    @Override
-    public String toString() {
-        return ("Article : " + title + "\n(" + guid
-                + ") Le = " + (published != null ? published : updated) + "\n Écrit par : "
-                + (author != null ? author : contributor) + "\n Le contenu : \n" + content );
-    }
 
     public int getId() {
         return id;
@@ -91,19 +94,19 @@ public class Item implements Serializable {
         this.title = title;
     }
 
-    public String getPublished() {
+    public Date getPublished() {
         return published;
     }
 
-    public void setPublished(String published) {
+    public void setPublished(Date published) {
         this.published = published;
     }
 
-    public String getUpdated() {
+    public Date getUpdated() {
         return updated;
     }
 
-    public void setUpdated(String updated) {
+    public void setUpdated(Date updated) {
         this.updated = updated;
     }
 
@@ -115,20 +118,11 @@ public class Item implements Serializable {
         this.content = content;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
-
-    public String getContributor() {
-        return contributor;
-    }
-
-    public void setContributor(String contributor) {
-        this.contributor = contributor;
-    }
-
 }

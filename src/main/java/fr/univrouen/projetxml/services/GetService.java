@@ -24,5 +24,13 @@ public class GetService {
         return getRepo.getById(id);
     }
 
+    public Item addItem(Item item) {
+      return getRepo.save(item);
+    }
+
+   public void deleteItemById(int id) {
+        getRepo.deleteById(id);
+   }
+
 
 }
