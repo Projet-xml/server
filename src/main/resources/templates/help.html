@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Help</title>
+    <meta charset="utf-8" />
+    <title>projet XML</title>
+    <link href="css/help.css" rel="stylesheet" th:href="@{css/help.css}">
+
 </head>
+
 <body>
-<h1> HELP </h1>
+<header>
+
+    <img align="left" width="15%" height="15%" src="images/univ.png" alt="logo de l'université" th:src="@{images/univ.png}"/>
+    <img align="right" width="15%" height="15%" src="images/campus.png" alt="logo de l'université" th:src="@{images/campus.png}"/>
+    <h1 align="center">Service Rest et Client </h1>
+</header>
+<main>
+    <h2>Controllers</h2>
+    <p>Pour afficher les articles la fonction getAllItems est appelée, elle prend </br>
+        rien en paramètre et retourne la listes des articles se trouvan dans la base données sous forme d'un flux xml.
+    </p>
+    <p>Pour ajouter un article la fonction addFlux est appelée, elle prend un flux </br>
+        qui doit d'abord passer par un validator une fois validé il sera ajouté</br>
+        à la base de données.
+    </p>
+    <p>Pour supprimer un article de la base de données la fonction deleteItemById </br>
+        est attendu qui prend en paramètre l'identifiant de l'article qu'on veut </br>
+        supprimer. une fois l'article récupéré on le supprime et on retourne son </br>
+        identifiant
+    </p>
+    <h2>XmlValidator</h2>
+    La fonction validateXMLSchema qui prend en paramètre un flux de type XML permet de </br>
+    passer ce flux en format XSD pour voir si il est conforme et le valider. dans le cas</br>
+    où une exception est levée de type IOException ou SAXException un message d'exception</br>
+    s'affiche et on retourne un false
+
+    <h2>XmlParser</h2>
+    <p>La fonction parseToItem prend en paramètre un flux xml et le converti en article.</br>
+        si uneexception de type JsonProcessingException ou IOException est levé ça retourne un</br>
+        false
+    </p>
+    <h2>FileLoader</h2>
+    <p>La fonction loadFine permet de télécharger un fichier et prend un paramètre  qui sera</br>
+        télécharger par resourceLoader  et à la fin converti en caractère grâce à la fonction </br>
+        asString  ( j'ai pas trop compris ce que font loadfile et asString)
+    </p>
+
+</main>
+
+<footer>
+    <div id="anneescolaire">
+        <p> 2021/2022</p>
+    </div>
+    <div id="niveauscolaire">
+        <p>Master 1 GIL</p>
+    </div>
+
+</footer>
+
+
+
 </body>
 </html>

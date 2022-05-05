@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 
-@XmlRootElement(name = "feed", namespace ="http://univrouen.fr/rss22")
+@XmlRootElement(name = "feed")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Feed {
 

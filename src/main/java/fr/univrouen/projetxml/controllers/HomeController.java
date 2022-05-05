@@ -20,8 +20,4 @@ public class HomeController {
         //return "hello";
         //return "home";
     }
-
-
-
-
 }

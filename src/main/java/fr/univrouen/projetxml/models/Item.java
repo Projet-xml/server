@@ -47,7 +47,6 @@ public class Item implements Serializable {
 
     @XmlElement
     @JoinColumn(name = "author_id")
-    @JsonIgnore
     @JacksonXmlProperty(localName = "author")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Author author;

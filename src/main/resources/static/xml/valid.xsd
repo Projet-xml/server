@@ -3,22 +3,17 @@
            xmlns="http://univrouen.fr/rss22"
            targetNamespace="http://univrouen.fr/rss22"
            elementFormDefault="qualified" >
-<!--
-    <xs:element name="feed" type="feedType" />
+
+  <!--  <xs:element name="feed" type="feedType" />
 
     <xs:complexType name="feedType">
-        <xs:sequence>
--->
+        <xs:sequence>  -->
             <xs:element name="item" type="itemType" />
-
-    <!--
-
+<!--
         </xs:sequence>
-        <xs:attribute name="lang" type="langue" use="required"   />
+        <xs:attribute name="lang" type="langue" />
     </xs:complexType>
-
 -->
-
     <xs:complexType name="linkType">
         <xs:attribute name="rel" type="relType" use="required"/>
         <xs:attribute name="type" type="mimeType" use="required"/>

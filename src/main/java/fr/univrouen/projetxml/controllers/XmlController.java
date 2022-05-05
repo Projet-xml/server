@@ -25,10 +25,16 @@ public class XmlController {
 
     @GetMapping(value = "/rss22/resume/xml",  produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
-    public Feed getAllitems() {
+    public List<Item> getAllitems() {
         List<Item> items = getService.getAllItems();
-        return new Feed(items);
+        return items;
+    }
 
+    @GetMapping(value = "/rss22/xml")
+    @ResponseBody
+    public List<Item> getAllitemsJson() {
+        List<Item> items = getService.getAllItems();
+        return items;
     }
 
     @GetMapping(value = "/rss22/resume/xml/{id}",  produces = MediaType.APPLICATION_XML_VALUE)
@@ -36,6 +42,14 @@ public class XmlController {
         Item item = getService.getItemById(id);
         return new Item(item.getGuid(), item.getTitle(), item.getPublished(), item.getUpdated(),item.getContent(), item.getAuthor());
     }
+
+
+    @GetMapping(value = "/rss22/xml/{id}")
+    public @ResponseBody Item getItemByIdJson(@PathVariable int id) {
+        Item item = getService.getItemById(id);
+        return new Item(item.getGuid(), item.getTitle(), item.getPublished(), item.getUpdated(),item.getContent(), item.getAuthor());
+    }
+
 
     @PostMapping(value = "/rss22/insert", consumes = "application/xml",  produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
