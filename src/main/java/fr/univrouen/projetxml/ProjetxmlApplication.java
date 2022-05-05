@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableJpaRepositories("fr.univrouen.projetxml.repositories")
 public class ProjetxmlApplication extends SpringBootServletInitializer {
 
