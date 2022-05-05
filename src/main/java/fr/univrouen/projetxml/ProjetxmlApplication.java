@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +17,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.sql.DataSource;
+
 @SpringBootApplication
+@Configuration
 @EnableJpaRepositories("fr.univrouen.projetxml.repositories")
 public class ProjetxmlApplication extends SpringBootServletInitializer {
 
@@ -32,5 +36,15 @@ public class ProjetxmlApplication extends SpringBootServletInitializer {
 						"GET", "POST");
 			}
 		};
+	}
+
+	@Bean
+	public DataSource datasource() {
+		return DataSourceBuilder.create()
+				.driverClassName("com.mysql.cj.jdbc.Driver")
+				.url("jdbc:mysql://uqoklh7gy47qrqds:2pjO7NqLx8uddlLeFGD@b95t0ccdv98oglfzkygu-mysql.services.clever-cloud.com:21341/b95t0ccdv98oglfzkygu")
+				.username("uqoklh7gy47qrqds")
+				.password("2pjO7NqLx8uddlLeFGD")
+				.build();
 	}
 }
