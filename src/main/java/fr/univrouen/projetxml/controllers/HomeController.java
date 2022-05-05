@@ -9,8 +9,8 @@ public class HomeController {
 
     @GetMapping("/help")
     @ResponseBody
-    public String help() {
-        return FileLoader.loadFile("classpath:templates/help.html");
+    public ModelAndView help() {
+        return new ModelAndView("help");
     }
 
     @GetMapping("/")
