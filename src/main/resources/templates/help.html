@@ -16,30 +16,59 @@
 </header>
 <main>
     <h2>Controllers</h2>
-    <p>Pour afficher les articles la fonction getAllItems est appelée, elle prend </br>
-        rien en paramètre et retourne la listes des articles se trouvan dans la base données sous forme d'un flux xml.
+    <h4>XmlController</h4>
+    <p>Pour afficher les articles la fonction getAllItems est attendu qui prend </br>
+        rien en paramètre et retourne la listes des articles. Le résultat est affiché </br>
+        en XML
     </p>
-    <p>Pour ajouter un article la fonction addFlux est appelée, elle prend un flux </br>
-        qui doit d'abord passer par un validator une fois validé il sera ajouté</br>
-        à la base de données.
+    <p>getAllItemsJson fait la même chose que getAllItems mais le résultat est en format</br>
+        Json</p>
+    <p>La fonction getItemById prend un paramètre qui représente l'identifiant d'un article </br>
+        et retourne l'article qui correspond à cet identifiant la avec son identifiant, titre</br>
+        auteur, contenu, date de publication et date de mise à jour. Le résultat est affiché </br>
+        en XML
     </p>
-    <p>Pour supprimer un article de la base de données la fonction deleteItemById </br>
+    <P>getItemByIdJson fait la même chose que getItemById mais le résultat est en format Json</P>
+
+    <p>Pour ajouter un article la fonction addFlux est attendu elle prend en flux </br>
+        qui doit d'abord passer par un validator une fois valider il sera ajouter</br>
+        à la base de données autant que fichier vide ou avec du contenu
+    </p>
+    <p>Pour supprimer un article de la base de données la fontion deleteItemById </br>
         est attendu qui prend en paramètre l'identifiant de l'article qu'on veut </br>
         supprimer. une fois l'article récupéré on le supprime et on retourne son </br>
         identifiant
     </p>
-    <h2>XmlValidator</h2>
+    <h4>HomeController</h4>
+    <p>La fonction help() nous permet d'afficher la page d'aide grâce au route @getMapping </br>
+        qui prend(/help) qui est accessible d'abord par la page d'acceuil et au servlet </br>
+        ModelAndView.
+    </p>
+    <p>La fonction home() nous permet d'afficher la page d'acceuil grâce au route @getMapping </br>
+        et au servlet ModelAndView.</p>
+    <h4>HtmlController</h4>
+    <p>La fonction getAllItems de type ModelAndView renvoie une vue de type HTML de la </br>
+        liste des articles
+    </p>
+    <p>La fonction de getItemById de type ModelAndView qui prend un paramètre qui représente</br>
+        l'identifiant d'un article et affiche dans une page html l'article qui correspond à </br>
+        cet identifiant là avec son auteur, titre, date de publication, date de mise à jour </br>
+        et son contenu
+    </p>
+    <h2>Utils</h2>
+
+    <h4>XmlValidator</h4>
     La fonction validateXMLSchema qui prend en paramètre un flux de type XML permet de </br>
     passer ce flux en format XSD pour voir si il est conforme et le valider. dans le cas</br>
     où une exception est levée de type IOException ou SAXException un message d'exception</br>
     s'affiche et on retourne un false
-
-    <h2>XmlParser</h2>
+    <h4>XmlParser</h4>
     <p>La fonction parseToItem prend en paramètre un flux xml et le converti en article.</br>
-        si uneexception de type JsonProcessingException ou IOException est levé ça retourne un</br>
-        false
+        si une exception de type JsonProcessingException ou IOException est levé ça retourne </br>
+        un false
     </p>
-    <h2>FileLoader</h2>
+    <p></p>
+    <h4>FileLoader</h4>
     <p>La fonction loadFine permet de télécharger un fichier et prend un paramètre  qui sera</br>
         télécharger par resourceLoader  et à la fin converti en caractère grâce à la fonction </br>
         asString  ( j'ai pas trop compris ce que font loadfile et asString)
@@ -49,12 +78,11 @@
 
 <footer>
     <div id="anneescolaire">
-        <p> 2021/2022</p>
+        <p>Année universitaire : 2021/2022</p>
     </div>
     <div id="niveauscolaire">
-        <p>Master 1 GIL</p>
+        <p>Master 1 Informatique - GIL</p>
     </div>
-
 </footer>
 
 

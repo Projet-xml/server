@@ -1,8 +1,8 @@
 header {
-
     margin: 0%;
-
 }
+
+
 h1{
     color: brown;
 }
@@ -24,6 +24,15 @@ div#lydia{
     float: right;
     width: auto;
 }
+
+div#name_container  {
+    margin: 0 auto;
+     width: 400px;
+     text-align : center;
+     margin-top : 3% !important;
+}
+
+
 main{
     max-width:100%;
     min-height:100%;
@@ -33,16 +42,18 @@ main{
 }
 footer {
     position:absolute;
-
     bottom:0;
-
-    width:100%;
+    width:97%;
 }
+
+
 div#anneescolaire{
     float : right;
     width: auto;
+    font-size: 150%;
 }
 div#niveauscolaire{
     float: left;
     width: auto;
+    font-size: 150%;
 }

@@ -19,22 +19,20 @@ main {
 
 
 footer {
-
-
-    bottom:0;
-    margin-bottom: -20%;
-
-    width:99%;
-
+     bottom:0;
+        margin-bottom: -20%;
+        width:99%;
 }
+
+
 div#anneescolaire{
     float : right;
     width: auto;
-    font-size: 150%;
+   font-size: 150%;
 
 }
 div#niveauscolaire{
     float: left;
     width: auto;
-    font-size: 150%;
+   font-size: 150%;
 }

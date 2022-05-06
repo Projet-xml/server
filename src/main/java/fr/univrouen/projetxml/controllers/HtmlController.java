@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.xml.sax.SAXException;
 
+import javax.persistence.EntityNotFoundException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
@@ -45,20 +46,22 @@ public class HtmlController {
 
     @GetMapping(value = "/rss22/html/{id}")
     public @ResponseBody ModelAndView getItemById(@PathVariable int id) {
-        Item item = getService.getItemById(id);
-        Map<String, Object> model = new HashMap<String, Object>();
 
-        if(item == null ) {
-           model.put("txt", "L'item" + id + "n\'existe pas ! ");
+        Map<String, Object> model = new HashMap<String, Object>();
+        try {
+            Item item = getService.getItemById(id);
+            model.put("id", item.getId());
+            model.put("title", item.getTitle());
+            model.put("guid", item.getGuid());
+            model.put("published", item.getPublished());
+            model.put("updated", item.getUpdated());
+            model.put("author", item.getAuthor());
+            model.put("content", item.getContent());
+            return new ModelAndView("item", model);
+        }catch (EntityNotFoundException e) {
+            model.put("txt", "L'item d'identifiant " + id + " n\'existe pas ! ");
             return new ModelAndView("notfoundpage", model);
         }
-        model.put("id", item.getId());
-        model.put("title", item.getTitle());
-        model.put("guid", item.getGuid());
-        model.put("published", item.getPublished());
-        model.put("updated", item.getUpdated());
-        model.put("author", item.getAuthor());
-        model.put("content", item.getContent());
-        return new ModelAndView("item", model);
+
     }
 }
