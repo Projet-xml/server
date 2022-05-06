@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8" />
     <title>projet XML</title>
@@ -73,6 +73,18 @@
         télécharger par resourceLoader  et à la fin converti en caractère grâce à la fonction </br>
         asString  ( j'ai pas trop compris ce que font loadfile et asString)
     </p>
+    </p>
+    <h2> Le côté client </h2>
+    <p>Toutes les pages peuvent se redirectionner dans la page d'acceuil grâce à </p></br>
+    <p>Pour afficher les articles, cliquez sur le bouton qui lui est dédié, vous serez redérigé vers le lien '/items, </br>
+     unse fois dedans vous pouvez télécherger le flux xml grâce à la récupération des items sous forme d'un flux depuis  </br>
+        le route server "/rss22/resume/xml" ainsi que ajouter un flux (rss22/insert) ou supprimer un existant (rss22/delete/{id}</p>
+    <p>Pour afficher un article, le chemin est 'item/:id', une fois dedans, vous pouvez télécharger sous forme d'un flux xml  </br>
+        (rss22/resume/xml/{id})
+
+    </p>
+    <p>Pour afficher la page help, le chemin est 'help'</p>
+
 
 </main>
 
