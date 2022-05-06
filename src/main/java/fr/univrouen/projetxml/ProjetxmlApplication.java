@@ -20,8 +20,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@EnableAutoConfiguration
-@Configuration
 @EnableJpaRepositories("fr.univrouen.projetxml.repositories")
 public class ProjetxmlApplication extends SpringBootServletInitializer {
 
@@ -48,4 +46,5 @@ public class ProjetxmlApplication extends SpringBootServletInitializer {
 				.password("2pjO7NqLx8uddlLeFGD")
 				.build();
 	}
+
 }

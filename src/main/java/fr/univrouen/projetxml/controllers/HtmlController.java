@@ -5,6 +5,7 @@ import fr.univrouen.projetxml.services.GetService;
 import fr.univrouen.projetxml.utils.FileLoader;
 import fr.univrouen.projetxml.utils.XmlParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;

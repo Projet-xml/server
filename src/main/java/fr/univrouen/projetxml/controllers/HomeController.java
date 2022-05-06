@@ -1,6 +1,7 @@
 package fr.univrouen.projetxml.controllers;
 
 import fr.univrouen.projetxml.utils.FileLoader;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
