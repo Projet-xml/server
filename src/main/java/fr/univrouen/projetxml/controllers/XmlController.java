@@ -65,7 +65,8 @@ public class XmlController {
     }
 
     @DeleteMapping(value= "/rss22/delete/{id}")
-    public @ResponseBody int deleteItemById(@PathVariable int id) {
+    @ResponseBody
+    public int deleteItemById(@PathVariable int id) {
         Item item = getService.getItemById(id);
         getService.deleteItemById(id);
         return id;
