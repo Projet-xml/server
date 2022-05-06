@@ -34,7 +34,7 @@ public class HtmlController {
     public ModelAndView getAllItems() throws IOException, ParserConfigurationException, TransformerException, SAXException {
         List<Item> items = getService.getAllItems();
         Map<String, List<Item>> model = new HashMap<String, List<Item>>();
-        if(items == null) {
+        if(items.isEmpty()) {
             Map<String,Object> model1 = new HashMap<String, Object>();
             model1.put("txt", "La table des items est vides");
             return new ModelAndView("notfoundpage", model1);
@@ -48,7 +48,7 @@ public class HtmlController {
         Item item = getService.getItemById(id);
         Map<String, Object> model = new HashMap<String, Object>();
 
-        if(item == null) {
+        if(item == null ) {
            model.put("txt", "L'item" + id + "n\'existe pas ! ");
             return new ModelAndView("notfoundpage", model);
         }
