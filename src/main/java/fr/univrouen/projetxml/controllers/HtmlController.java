@@ -37,7 +37,7 @@ public class HtmlController {
         Map<String, List<Item>> model = new HashMap<String, List<Item>>();
         if(items.isEmpty()) {
             Map<String,Object> model1 = new HashMap<String, Object>();
-            model1.put("txt", "La table des items est vides");
+            model1.put("txt", "La table des items est vide");
             return new ModelAndView("notfoundpage", model1);
         }
         model.put("watchlistItems", items);
